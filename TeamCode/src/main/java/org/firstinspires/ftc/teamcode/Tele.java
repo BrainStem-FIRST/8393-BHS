@@ -44,6 +44,7 @@ public class Tele extends LinearOpMode {
 
 
 
+
             telemetry.addData("y-axis :", y);
             telemetry.addData("x-axis :", x);
             telemetry.addData("turn :", rx);

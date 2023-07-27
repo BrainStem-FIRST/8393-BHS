@@ -9,10 +9,6 @@ public class Tele extends LinearOpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
 
-
-
-
-
     private BrainSTEMRobot robot;
 
 
@@ -21,6 +17,10 @@ public class Tele extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
 
         robot = new BrainSTEMRobot(this.hardwareMap, this.telemetry, this);
+
+
+        waitForStart();
+
 
         while (!opModeIsActive()) {
 

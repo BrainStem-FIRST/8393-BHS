@@ -19,8 +19,7 @@ public class BrainSTEMRobot {
 
     // Example Motors and Servos
 
-    public Servo exampleServo;
-    public DcMotorEx exampleMotor;
+    public Servo BrainSTEMServo;
 
 
     // Don't touch these
@@ -33,11 +32,13 @@ public class BrainSTEMRobot {
         this.opMode = opMode;
 
 
-        // Defining the Motors
+        // Defining the Motors and servos
         frontLeft =  (DcMotorEx)hwMap.dcMotor.get("FL");
         frontRight = (DcMotorEx)hwMap.dcMotor.get("FR");
         backLeft =   (DcMotorEx)hwMap.dcMotor.get("BL");
         backRight =  (DcMotorEx)hwMap.dcMotor.get("BR");
+
+        BrainSTEMServo = hwMap.servo.get("servo");
 
 
         // reverse these if needed
@@ -55,19 +56,7 @@ public class BrainSTEMRobot {
 
     }
 
-    public void setDTMotorPowers(double frontLeftPower, double frontRightPower, double backLeftPower, double backRightPower) {
-        frontLeft.setPower(frontLeftPower);
-        frontRight.setPower(frontRightPower);
-        backLeft.setPower(backLeftPower);
-        backRight.setPower(backRightPower);
-    }
 
-    public void stop() {
-        frontLeft.setPower(0);
-        frontRight.setPower(0);
-        backLeft.setPower(0);
-        backRight.setPower(0);
-    }
 
 
 

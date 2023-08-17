@@ -5,18 +5,17 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "TeleOp")
-public class Tele extends LinearOpMode {
+public class BrainSTEMTele extends LinearOpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
 
-    private BrainSTEMRobot robot;
 
 
 
     @Override
     public void runOpMode() throws InterruptedException {
 
-        robot = new BrainSTEMRobot(this.hardwareMap, this.telemetry, this);
+        BrainSTEMRobot brainSTEMrobot = new BrainSTEMRobot(this.hardwareMap, this.telemetry, this);
 
 
         waitForStart();
@@ -38,17 +37,22 @@ public class Tele extends LinearOpMode {
             double x = gamepad1.left_stick_x;
             double rx = gamepad1.right_stick_x;
 
-            robot.frontLeft.setPower(y + x + rx);
-            robot.backLeft.setPower(y - x + rx);
-            robot.frontRight.setPower(y - x - rx);
-            robot.backRight.setPower(y + x - rx);
+            brainSTEMrobot.frontLeft.setPower(y + x + rx);
+            brainSTEMrobot.backLeft.setPower(y - x + rx);
+            brainSTEMrobot.frontRight.setPower(y - x - rx);
+            brainSTEMrobot.backRight.setPower(y + x - rx);
 
 
+            if (gamepad1.right_bumper){
+                brainSTEMrobot.BrainSTEMServo.setPosition(0.99);
+            }
+
+            if (gamepad1.left_bumper){
+                brainSTEMrobot.BrainSTEMServo.setPosition(0.01);
+            }
 
 
-            telemetry.addData("y-axis :", y);
-            telemetry.addData("x-axis :", x);
-            telemetry.addData("turn :", rx);
+            telemetry.addLine("Tele Running");
             telemetry.update();
         }
     }

@@ -47,7 +47,7 @@ public class BrainSTEMTele extends LinearOpMode {
                 brainSTEMrobot.BrainSTEMServo.setPosition(0.99);
             }
 
-            if (gamepad1.left_bumper){
+            if (gamepad1.right_bumper){
                 brainSTEMrobot.BrainSTEMServo.setPosition(0.01);
             }
 
